@@ -6,13 +6,27 @@ fn main() {
 
     println!("Please, select the input type is celsius or fahrenheit (c/f)!");
 
-    let mut temp_type = String::new();
+    let mut temp_type   =   String::new();
+    let mut temprature  =   String::new();
 
     io::stdin()
         .read_line(&mut temp_type)
-        .expect("Fail to read!");
+        .expect("Fail to read type!");
 
-    println!("{}", temp_type)
+    println!("Please give the temprature!");
+
+    io::stdin()
+        .read_line(&mut temprature)
+        .expect("Failt to read temprature!");
+
+    let temprature: f32 = temprature.trim().parse().expect("Something went wrong!");
+    let _cel = 'c';
+    let _fahr = 'f';
+
+    match temp_type {
+        _cel => println!("Celsius to Fahrenheit -> {}", celsius_to_fahrenheit(temprature)),
+        _fahr => println!("Celsius to Fahrenheit -> {}", fahrenheit_to_celsius(temprature))
+    };
     
 }
 
